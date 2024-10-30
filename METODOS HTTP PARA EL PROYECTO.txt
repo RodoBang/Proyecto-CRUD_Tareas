@@ -1,0 +1,78 @@
+METODOS HTTP PARA EL PROYECTO
+
+// Registro de Usuario
+POST : http://localhost:3000/auth/register
+
+Body (JSON):
+{
+  "email": "usuario@example.com",
+  "password": "password123"
+}
+
+{
+	"code": 201,
+	"message": "Usuario creado",
+	"uid": "wM771whSzEVa8oibRFE2rTtWVez2"
+}
+
+//----------------------------------------------------------------------
+
+// Iniciar Sesión
+
+POST : http://localhost:3000/auth/login
+
+Body (JSON):
+{
+  "email": "usuario@example.com",
+  "password": "password123"
+}
+
+{
+	"code": 200,
+	"message": "Sesión iniciada",
+	"token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiJ3TTc3MXdoU3pFVmE4b2liUkZFMnJUdFdWZXoyIiwiZW1haWwiOiJ1c3VhcmlvQGV4YW1wbGUuY29tIiwiaWF0IjoxNzI5NjQzODg4LCJleHAiOjE3Mjk2NDc0ODh9.RL7QZEjMvzL5o9_rDyNhlbupY9Q5-Mrsk0JG_PZpBB4"
+}
+
+//----------------------------------------------------------------------
+
+// Crear Tarea
+
+POST : http://localhost:3000/tasks
+
+bEARER token : eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiJ3TTc3MXdoU3pFVmE4b2liUkZFMnJUdFdWZXoyIiwiZW1haWwiOiJ1c3VhcmlvQGV4YW1wbGUuY29tIiwiaWF0IjoxNzI5NjQ0NTA5LCJleHAiOjE3Mjk2NDgxMDl9.tg-9N5bJKX9wZQFfFKnYf2NG0fvrGiWQpjDAGI32Vq4
+
+//----------------------------------------------------------------------
+
+// Obtener tareas
+
+GET : http://localhost:3000/tasks
+
+Bearer token : xxxxx
+
+x-api-key
+
+
+//----------------------------------------------------------------------
+
+// Actualizar una tarea
+
+PUT : http://localhost:3000/tasks/{id}  // se reemplaza el {id} por el ID de la tarea que deseamos
+
+Bearer token : xxxx
+x-api-key
+
+{
+  "title": "Nuevo título de la tarea",
+  "description": "Nueva descripción",
+  "completed": true  // o false según quieras
+}
+
+//----------------------------------------------------------------------
+
+// Eliminar tarea
+
+DELETE : http://localhost:3000/tasks/:id // se reemplaza el {id} por el ID de la tarea que deseamos
+
+Bearer token : xxx
+
+x-api-key

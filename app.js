@@ -8,18 +8,15 @@ const app = express();
 
 app.use(bodyParser.json());
 
-// Rutas publicas
-
+// Rutas públicas
 app.use('/auth', authRoutes);
 
 // Rutas protegidas
-
 app.use('/tasks', authenticateToken, taskRoutes);
 
 // Middleware para rutas no encontradas
-
 app.use((req, res) => {
-    res.status(404).json({ code : 404, message: 'Ruta no encontrada' });
+    res.status(404).json({ code: 404, message: 'Ruta no encontrada' });
 });
 
-module.exports = app;
+module.exports = app; // <--- Aquí lo exportamos con CommonJS
